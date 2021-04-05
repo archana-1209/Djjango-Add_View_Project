@@ -1,0 +1,26 @@
+{% extends 'enroll/base.html' %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {% if messages %}
+<ul class="messages" color="green">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+  </div>
+    {% endfor %}
+</ul>
+{% endif %}
+        <label for="fname">Enter your name:</label><br>
+  <input type="text" id="fname" name="fname" ><br>
+        <!--you get the idea-->
+   
+        <label for="slider">Select a value:</label><br>
+     <input type="range" min="1" max="100" value="100" class="form-control-range" name="slider_value" id="time_slider">
+    <b> <span id="slider_value" ></span></b> 
+<br><br>
+    <input type="submit" class="btn btn-success" value="Add">
+<br><br>
+    <a href="{% url 'updatedata'%}" class="btn btn-warning btn-sm">View </a>
+</form>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends 'enroll/base.html' %}
+{% block content %}
+<div class="col-sm-12">
+	<h4>Show Student Information</h4>
+
+{% if stu %}
+<table class="table table-hover ">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">Value</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  	{% for st in stu %}
+    <tr>
+      <th scope="row">{{st.id}}</th>
+      <td>{{st.name}}</td>
+      <td>{{st.value}}</td>
+     
+      	
+      	
+      </td>
+    </tr>
+    {% endfor%}
+  </tbody>
+</table>
+{% else %}
+<h4 class="text-center alert alert-warning">NoRecords</h4>
+{% endif %}
+</div>
+
+
+{% endblock content %}
